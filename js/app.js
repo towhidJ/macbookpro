@@ -1,9 +1,4 @@
-
-
-
-
-
-
+//Update extra memory, stroage and deliver cost calculation
 function updateCost(cost,price,costType)
 {
     const costTotal = document.getElementById(cost);
@@ -11,6 +6,8 @@ function updateCost(cost,price,costType)
     updateTotalPrice();
 }
 
+
+//update total price calculation
 function updateTotalPrice()
 {
     const totalPrice = document.getElementById('total-price');
@@ -19,8 +16,15 @@ function updateTotalPrice()
     const extraStroagePrice = document.getElementById('extra-stroage-cost').innerText;
     const extraDeliveryPrice = document.getElementById('delivery-charge').innerText;
     totalPrice.innerText = parseInt(bestPrice)+parseInt(extraMemoryPrice)+parseInt(extraStroagePrice)+parseInt(extraDeliveryPrice);
+    updateTotal(); 
 
+}
 
+// update Total price and discouny calculation
+function updateTotal(){
+    const totalPrice = document.getElementById('total-price').innerText;
+    let total = document.getElementById('total');
+    total.innerText = totalPrice;
 }
 
 // -------------------------------memory handler change--------------------------
