@@ -27,6 +27,35 @@ function updateTotal(){
     total.innerText = totalPrice;
 }
 
+//---------------------------------Coupon Discount handler ---------------------------
+document.getElementById('apply-promo-btn').addEventListener('click', 
+function(){
+    discountCalculate();
+});
+
+//Calculate Discount function
+function discountCalculate()
+{
+    const pomoCodeInput = document.getElementById('pomo-code-input');
+    const pomoCode = pomoCodeInput.value;
+    if(pomoCode.toLowerCase() == 'stevekaku')
+    {
+        const totalPrice = document.getElementById('total-price').innerText;
+        let total = document.getElementById('total');
+        total.innerText = totalPrice - percentage(totalPrice,20);
+    }
+    
+    pomoCodeInput.value ="";
+}
+
+//Calculate percentage function
+function percentage(num, per)
+{
+  return (num/100)*per;
+}
+
+
+
 // -------------------------------memory handler change--------------------------
 
 // 8gb memory handler
@@ -76,3 +105,5 @@ document.getElementById('paid-delivery').addEventListener('click',
 function(){
     updateCost('delivery-charge',20);
 });
+
+
